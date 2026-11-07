@@ -79,7 +79,7 @@ Open [http://localhost:8501](http://localhost:8501) in your browser.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/aayushkumaryadav/air-quality-prediction.git
+git clone https://github.com/Aayush-9849/air-quality-prediction.git
 cd air-quality-prediction
 ```
 
