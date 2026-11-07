@@ -102,7 +102,7 @@ The ensemble output closely aligns with the true ground truth ($103.33$), cancel
   * `matplotlib (v3.11.1)` & `seaborn (v0.13.2)`: Visualizations, residual plots, feature importance bar charts.
   * `joblib (v1.5.3)`: Model serialization and persistence.
   * `streamlit (v1.64.0)`: Web interface for interactive inference.
-* **Source Code Link**: [https://github.com/Aayush-9849/air-quality-prediction](https://github.com/Aayush-9849/air-quality-prediction)
+* **Source Code Link**: [https://github.com/Aayush-9849/Air-Quality-Index](https://github.com/Aayush-9849/Air-Quality-Index)
 
 #### Dataset Characteristics
 * **Total Instances**: 5,000 multi-pollutant monitoring observations.
@@ -207,7 +207,7 @@ This case study successfully answered the research questions by demonstrating th
 * **[2] Official Standard**: Central Pollution Control Board (CPCB), "National Air Quality Index: Standard Operating Procedure and Calculation Guidelines," Ministry of Environment, Forest and Climate Change, Government of India, 2015.
 * **[3] Machine Learning Framework**: F. Pedregosa *et al.*, "Scikit-learn: Machine Learning in Python," *Journal of Machine Learning Research (JMLR)*, vol. 12, pp. 2825-2830, 2011.
 * **[4] Algorithm Theory**: L. Breiman, "Random Forests," *Machine Learning*, vol. 45, no. 1, pp. 5-32, 2001. DOI: 10.1023/A:1010933404324.
-* **[5] Executed Source Code**: A. Yadav, "Air Quality Index (AQI) Prediction Pipeline and Streamlit Application," GitHub Repository, 2026. [Online]. Available: https://github.com/Aayush-9849/air-quality-prediction
+* **[5] Executed Source Code**: A. Yadav, "Air Quality Index (AQI) Prediction Pipeline and Streamlit Application," GitHub Repository, 2026. [Online]. Available: https://github.com/Aayush-9849/Air-Quality-Index
 
 ---
 

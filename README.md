@@ -79,8 +79,8 @@ Open [http://localhost:8501](http://localhost:8501) in your browser.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Aayush-9849/air-quality-prediction.git
-cd air-quality-prediction
+git clone https://github.com/Aayush-9849/Air-Quality-Index.git
+cd Air-Quality-Index
 ```
 
 ### 2. Set Up Virtual Environment & Dependencies
