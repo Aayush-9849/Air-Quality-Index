@@ -6,8 +6,8 @@
 | **Case study title** | Air Quality Index (AQI) Prediction from Pollutant Levels |
 | **Base paper** | S. Ameer, M. A. Shah, A. Khan, H. Song, C. Maple, S. U. Islam, and M. N. Asghar, "Comparative Analysis of Machine Learning Techniques for Predicting Air Quality in Smart Cities," *IEEE Access*, vol. 7, pp. 128325-128338, 2019. |
 | **Date of submission** | 08-11-2026 |
-| **Roll No.** | [Your Roll No.] |
-| **Name** | [Your Name] |
+| **Roll No.** | AP24110012171 |
+| **Name** | Ayush Yadav |
 
 ---
 
@@ -215,6 +215,6 @@ This case study successfully answered the research questions by demonstrating th
 
 I confirm that this case study is my own work and that all results reported were obtained by me.
 
-**Signature**: ______________________  
-**Roll No.**: [Your Roll No.]  
-**Name**: [Your Name]  
+**Signature**: *(Signed)* <img src="figures/signature.png" height="32" style="vertical-align: middle;">  
+**Roll No.**: AP24110012171  
+**Name**: Ayush Yadav  
