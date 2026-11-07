@@ -1,0 +1,52 @@
+{
+  "Multiple Linear Regression": {
+    "R2_Score": 0.7547,
+    "MAE": 20.0387,
+    "MSE": 625.2445,
+    "RMSE": 25.0049
+  },
+  "Decision Tree Regressor": {
+    "R2_Score": 0.9937,
+    "MAE": 2.9147,
+    "MSE": 16.0421,
+    "RMSE": 4.0053
+  },
+  "Random Forest Regressor": {
+    "R2_Score": 0.9958,
+    "MAE": 2.3935,
+    "MSE": 10.6184,
+    "RMSE": 3.2586
+  },
+  "Feature_Importances": {
+    "PM2.5": 0.8895,
+    "CO": 0.073,
+    "PM10": 0.0355,
+    "O3": 0.0013,
+    "NO2": 0.0004,
+    "SO2": 0.0003
+  },
+  "Sample_Accurate_Case": {
+    "PM2.5": 54.7,
+    "PM10": 91.45,
+    "NO2": 25.04,
+    "SO2": 19.45,
+    "CO": 2.3,
+    "O3": 33.52,
+    "Actual_AQI": 103.33,
+    "Predicted_AQI": 103.33,
+    "Absolute_Error": 0.0,
+    "Percentage_Error": 0.0
+  },
+  "Sample_Divergent_Case": {
+    "PM2.5": 25.28,
+    "PM10": 34.66,
+    "NO2": 59.71,
+    "SO2": 10.62,
+    "CO": 0.69,
+    "O3": 30.75,
+    "Actual_AQI": 79.82,
+    "Predicted_AQI": 48.51,
+    "Absolute_Error": 31.31,
+    "Percentage_Error": 39.23
+  }
+}
