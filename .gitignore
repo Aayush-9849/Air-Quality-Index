@@ -3,8 +3,4 @@ __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
 .DS_Store
-
-# Keep downloaded/raw data out of version control by default.
-# Remove this line if you intentionally want to commit the CSV.
-data/raw/*.csv
-data/processed/*
+archive/
