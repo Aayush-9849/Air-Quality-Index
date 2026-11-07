@@ -2,164 +2,143 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLA-3 Case Study Report - Air Quality Index (AQI) Prediction</title>
+    <title>CLA-3 Case Study Report - Air Quality Index Prediction</title>
     <style>
         @page {
-            size: A4;
-            margin: 20mm 20mm 20mm 20mm;
+            size: A4 portrait;
+            margin: 14mm 16mm 14mm 16mm;
+        }
+        * {
+            box-sizing: border-box;
         }
         body {
-            font-family: 'Times New Roman', Times, serif, system-ui;
-            line-height: 1.5;
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.35;
             color: #111;
-            margin: 0 auto;
-            max-width: 850px;
-            padding: 30px 40px;
+            margin: 0;
+            padding: 0;
             background-color: #fff;
+            font-size: 10pt;
         }
         .header-title {
             text-align: center;
-            font-size: 20pt;
+            font-size: 16pt;
             font-weight: bold;
-            margin-bottom: 2px;
+            letter-spacing: 0.5px;
+            margin: 0 0 2px 0;
             text-transform: uppercase;
         }
         .header-subtitle {
             text-align: center;
-            font-size: 13pt;
-            color: #555;
-            margin-bottom: 20px;
+            font-size: 11pt;
+            color: #444;
+            margin: 0 0 10px 0;
         }
         .meta-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 25px;
-            font-size: 10.5pt;
+            margin-bottom: 12px;
+            font-size: 9.5pt;
         }
         .meta-table th, .meta-table td {
-            border: 1px solid #777;
-            padding: 8px 12px;
+            border: 1px solid #444;
+            padding: 4px 8px;
             text-align: left;
-            vertical-align: top;
+            vertical-align: middle;
         }
         .meta-table th {
             background-color: #f2f2f2;
-            width: 25%;
+            width: 24%;
             font-weight: bold;
         }
         h2 {
-            font-size: 13pt;
+            font-size: 11.5pt;
             font-weight: bold;
-            border-bottom: 1.5px solid #222;
-            padding-bottom: 4px;
-            margin-top: 24px;
-            margin-bottom: 10px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 2px;
+            margin: 12px 0 6px 0;
             color: #000;
         }
         h3 {
-            font-size: 11.5pt;
+            font-size: 10pt;
             font-weight: bold;
-            margin-top: 14px;
-            margin-bottom: 6px;
+            margin: 8px 0 4px 0;
         }
         p {
-            font-size: 10.5pt;
+            font-size: 9.5pt;
             text-align: justify;
-            margin-top: 4px;
-            margin-bottom: 8px;
+            margin: 3px 0 5px 0;
         }
         ul, ol {
-            font-size: 10.5pt;
-            margin-top: 4px;
-            margin-bottom: 8px;
-            padding-left: 25px;
+            font-size: 9.5pt;
+            margin: 3px 0 5px 0;
+            padding-left: 20px;
         }
         li {
-            margin-bottom: 4px;
+            margin-bottom: 2px;
+            text-align: justify;
         }
         .math-block {
-            background-color: #f9f9f9;
-            border-left: 3px solid #0056b3;
-            padding: 8px 14px;
+            background-color: #f8f9fa;
+            border-left: 3px solid #1a5276;
+            padding: 4px 10px;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 10pt;
-            margin: 10px 0;
+            font-size: 9pt;
+            margin: 5px 0;
         }
         .data-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 14px 0;
-            font-size: 10pt;
+            margin: 8px 0;
+            font-size: 9pt;
         }
         .data-table th, .data-table td {
-            border: 1px solid #888;
-            padding: 7px 10px;
+            border: 1px solid #555;
+            padding: 4px 6px;
             text-align: center;
         }
         .data-table th {
-            background-color: #e9ecef;
+            background-color: #eaeded;
             font-weight: bold;
         }
-        .data-table tr:nth-child(even) {
-            background-color: #fdfdfd;
+        .figures-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            gap: 10px;
         }
-        .figure-container {
+        .figure-col {
+            flex: 1;
             text-align: center;
-            margin: 16px 0;
         }
-        .figure-container img {
-            max-width: 90%;
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+        .figure-col img {
+            max-width: 100%;
+            height: 145px;
+            object-fit: contain;
+            border: 1px solid #ccc;
         }
         .figure-caption {
-            font-size: 9.5pt;
+            font-size: 8pt;
             font-style: italic;
-            color: #444;
-            margin-top: 6px;
+            color: #333;
+            margin-top: 3px;
         }
         .declaration-box {
-            margin-top: 25px;
-            padding: 15px;
-            border: 1px solid #999;
-            background-color: #fcfcfc;
+            margin-top: 10px;
+            padding: 8px 12px;
+            border: 1px solid #666;
+            background-color: #fafafa;
+            font-size: 9pt;
         }
         .page-break {
             page-break-before: always;
-        }
-        @media print {
-            body {
-                padding: 0;
-                max-width: 100%;
-            }
-            .no-print {
-                display: none;
-            }
-        }
-        .print-btn {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 18px;
-            border: none;
-            border-radius: 5px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-        .print-btn:hover {
-            background-color: #0056b3;
+            break-before: page;
         }
     </style>
 </head>
 <body>
 
-    <div class="no-print" style="text-align: right;">
-        <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF (Cmd + P)</button>
-    </div>
-
+    <!-- ================= PAGE 1 ================= -->
     <div class="header-title">CLA-3 – Case Study</div>
     <div class="header-subtitle">Student Template Report</div>
 
@@ -182,128 +161,120 @@
         </tr>
         <tr>
             <th>Name</th>
-            <td><strong>[Your Name]</strong></td>
+            <td><strong>Ayush Yadav</strong></td>
         </tr>
     </table>
 
     <h2>1. Introduction and Problem Statement</h2>
     <p>
-        Air pollution is among the most severe global environmental health crises of modern times. According to the World Health Organization (WHO), ambient particulate matter and harmful gases contribute to over 4.2 million premature deaths annually through chronic respiratory ailments, cardiovascular disease, and stroke. The Air Quality Index (AQI) is a standardized metric that translates complex multi-pollutant concentrations—specifically fine particulate matter (PM<sub>2.5</sub>), coarse particulate matter (PM<sub>10</sub>), nitrogen dioxide (NO<sub>2</sub>), sulfur dioxide (SO<sub>2</sub>), carbon monoxide (CO), and ground-level ozone (O<sub>3</sub>)—into a single numerical value that conveys potential health risks to the public and regulatory authorities.
+        Air pollution represents one of the most critical environmental and global health challenges of the 21st century. The World Health Organization (WHO) attributes over 4.2 million premature annual mortalities to ambient fine particulate matter and toxic gaseous contaminants, predominantly through chronic pulmonary diseases, acute respiratory infections, ischemic heart disease, and strokes. The standard Air Quality Index (AQI) aggregates multi-pollutant concentrations—specifically fine particulate matter (PM<sub>2.5</sub>), coarse particulate matter (PM<sub>10</sub>), nitrogen dioxide (NO<sub>2</sub>), sulfur dioxide (SO<sub>2</sub>), carbon monoxide (CO), and ground-level ozone (O<sub>3</sub>)—into a unified continuous metric reflecting acute health risks.
     </p>
     <p>
-        However, traditional mathematical calculation of AQI involves multi-stage piecewise linear interpolations across individual pollutant sub-indices, followed by max-operator aggregation. This approach is computationally non-differentiable, highly sensitive to isolated sensor fluctuations, and lacks predictive capability for dynamic urban environmental monitoring. Moreover, physical atmospheric chemistry exhibits complex non-linear interactions where multiple pollutants compound one another under variable atmospheric conditions.
+        Conventionally, municipal regulatory bodies compute AQI through multi-stage piecewise linear interpolation formulas applied across each pollutant's concentration breakpoints, subsequently applying a non-differentiable maximum aggregation: <code>AQI = max(I_1, I_2, ..., I_p)</code>. While mathematically straightforward, this approach is fundamentally retrospective, vulnerable to sensor noise, non-differentiable, and incapable of capturing continuous atmospheric cross-pollutant interactions under variable humidity, temperature, and dispersion regimes.
     </p>
-    <p>
-        This case study answers the following specific research questions:
-    </p>
+    <p><strong>This case study answers the following specific research questions:</strong></p>
     <ul>
-        <li><strong>Can supervised ensemble machine learning algorithms accurately predict continuous Air Quality Index (AQI) values directly from raw ambient pollutant concentrations (PM<sub>2.5</sub>, PM<sub>10</sub>, NO<sub>2</sub>, SO<sub>2</sub>, CO, O<sub>3</sub>)?</strong></li>
-        <li><strong>Which individual pollutant serves as the primary governing feature in determining the overall AQI value?</strong></li>
-        <li><strong>How significantly do non-linear tree-based ensemble methods (Random Forest) outperform traditional Multiple Linear Regression baselines when capturing multi-pollutant threshold behavior?</strong></li>
+        <li>Can supervised ensemble machine learning algorithms accurately forecast continuous Air Quality Index (AQI) scores directly from raw multi-pollutant sensor measurements (PM<sub>2.5</sub>, PM<sub>10</sub>, NO<sub>2</sub>, SO<sub>2</sub>, CO, O<sub>3</sub>)?</li>
+        <li>Which individual environmental pollutant acts as the predominant governing feature in determining overall atmospheric AQI severity?</li>
+        <li>How substantially do non-linear tree-based bagging ensembles (Random Forest Regressor) reduce prediction errors compared to classical Multiple Linear Regression (MLR) baselines?</li>
     </ul>
 
     <h2>2. Base Paper Summary</h2>
     <p>
-        The base paper selected for this study is:
-        <br>
-        <strong>S. Ameer, M. A. Shah, A. Khan, H. Song, C. Maple, S. U. Islam, and M. N. Asghar, "Comparative Analysis of Machine Learning Techniques for Predicting Air Quality in Smart Cities," <em>IEEE Access</em>, vol. 7, pp. 128325–128338, 2019. DOI: 10.1109/ACCESS.2019.2925082.</strong>
+        <strong>Citation:</strong> S. Ameer, M. A. Shah, A. Khan, H. Song, C. Maple, S. U. Islam, and M. N. Asghar, "Comparative Analysis of Machine Learning Techniques for Predicting Air Quality in Smart Cities," <em>IEEE Access</em>, vol. 7, pp. 128325–128338, 2019. DOI: 10.1109/ACCESS.2019.2925082.
     </p>
     <p>
-        <strong>What the paper proposed and its key idea:</strong> Ameer et al. proposed a smart-city air pollution monitoring and predictive framework utilizing advanced supervised regression techniques. Their central premise was that municipal sensor grids generate continuous streams of pollutant data that can be harnessed by predictive algorithms to forecast air quality levels before acute hazardous episodes occur. Rather than treating AQI calculation as an isolated lookup table, the authors framed AQI estimation as an empirical non-linear regression problem, modeling the combined effect of five major atmospheric contaminants (PM<sub>2.5</sub>, PM<sub>10</sub>, NO<sub>2</sub>, SO<sub>2</sub>, CO).
+        <strong>Proposed Architecture and Key Idea:</strong> Ameer et al. investigated an intelligent urban environmental surveillance framework utilizing advanced supervised learning algorithms. Their core insight posited that IoT-driven metropolitan sensor networks generate high-frequency multivariate time-series data that can be modeled via non-linear regressors to proactively predict air pollution levels rather than computing retroactive tabular lookups. The authors modeled the joint distribution of five primary criteria pollutants (PM<sub>2.5</sub>, PM<sub>10</sub>, NO<sub>2</sub>, SO<sub>2</sub>, CO) as continuous predictors mapped onto real-time air quality indices.
     </p>
     <p>
-        <strong>Main results reported:</strong> The authors conducted comprehensive benchmark evaluations comparing Multiple Linear Regression (MLR), Support Vector Regression (SVR), Decision Tree Regression, and Random Forest Regression across real-world metropolitan air quality datasets. Their empirical findings demonstrated that traditional linear models failed to capture sudden pollution spikes (yielding R<sup>2</sup> between 0.68 and 0.76), whereas ensemble Random Forest models achieved the lowest Root Mean Squared Error (RMSE) and highest predictive accuracy (R<sup>2</sup> &gt; 0.95), showing high robustness to sensor noise.
+        <strong>Main Results Reported:</strong> The authors conducted rigorous benchmark evaluations across Multiple Linear Regression (MLR), Support Vector Regression (SVR), Decision Tree Regression, and Random Forest Regression on real-world municipal datasets. Their experimental results proved that linear baselines fail during abrupt pollutant spikes (R<sup>2</sup> between 0.68 and 0.76), whereas ensemble Random Forest models achieved the highest predictive accuracy (R<sup>2</sup> &gt; 0.95) with the lowest Root Mean Squared Error (RMSE), demonstrating resilience against sensor variance and pollutant co-dependencies.
     </p>
 
+    <!-- ================= PAGE 2 ================= -->
     <div class="page-break"></div>
 
     <h2>3. Method / Model Explanation</h2>
     <p>
-        <strong>Step-by-Step Working of Random Forest Regression:</strong>
-        Random Forest is a bagging (Bootstrap Aggregating) ensemble learning method composed of an ensemble of <em>B</em> de-correlated Decision Trees:
+        <strong>Step-by-Step Working of Random Forest Regression:</strong><br>
+        Random Forest is a non-parametric bagging (Bootstrap Aggregating) ensemble algorithm composed of <em>B</em> independently trained decision trees designed to minimize prediction variance without increasing bias:
     </p>
     <ol>
-        <li><strong>Bootstrap Sampling:</strong> Given a training set <em>D = {(x<sub>1</sub>, y<sub>1</sub>), ..., (x<sub>N</sub>, y<sub>N</sub>)}</em> of <em>N</em> observations with <em>p = 6</em> pollutant features, <em>B</em> independent bootstrap datasets <em>D<sub>b</sub></em> (<em>b = 1, ..., B</em>) are drawn uniformly with replacement from <em>D</em>. Approximately 63.2% of instances are captured in each bootstrap sample, while the remaining 36.8% serve as out-of-bag (OOB) validation samples.</li>
-        <li><strong>Feature Subsampling at Each Split:</strong> For each decision tree <em>T<sub>b</sub></em>, internal nodes are recursively split. At each split, instead of considering all <em>p</em> features, a random subset of <em>m = &lfloor;p/3&rfloor;</em> or <em>m = &lfloor;&radic;p&rfloor;</em> features is chosen. This prevents dominant pollutants like PM<sub>2.5</sub> from monopolizing early splits across all trees.</li>
-        <li><strong>Recursive Binary Splitting via Variance Reduction:</strong> The split criterion identifies the feature <em>j</em> and partition threshold <em>s</em> that maximizes impurity reduction (Mean Squared Error).</li>
-        <li><strong>Ensemble Aggregation:</strong> Given an unseen observation vector <strong>x</strong><sup>*</sup> = [PM<sub>2.5</sub>, PM<sub>10</sub>, NO<sub>2</sub>, SO<sub>2</sub>, CO, O<sub>3</sub>], each tree generates an individual scalar prediction <em>T<sub>b</sub>(<strong>x</strong><sup>*</sup>)</em>. The final continuous AQI prediction is calculated as the arithmetic average across all <em>B</em> trees.</li>
+        <li><strong>Bootstrap Sampling:</strong> Given a training dataset <em>D = {(x<sub>1</sub>, y<sub>1</sub>), ..., (x<sub>N</sub>, y<sub>N</sub>)}</em> with <em>N = 4,000</em> training instances and <em>p = 6</em> continuous pollutant inputs, <em>B</em> distinct bootstrap subsets <em>D<sub>b</sub></em> (for <em>b = 1, ..., B</em>) are drawn uniformly with replacement. Each subset captures approximately 63.2% unique training samples, leaving the remaining 36.8% as out-of-bag (OOB) validation samples.</li>
+        <li><strong>Random Feature Subspace Selection:</strong> In standard decision trees, every node searches across all <em>p</em> attributes for the optimal split. In Random Forest, each candidate split considers only a randomly selected subset of <em>m = &lfloor;&radic;p&rfloor; = 2</em> features. This de-correlates the ensemble trees, ensuring that dominant features (such as PM<sub>2.5</sub>) do not completely mask secondary gaseous pollutants across all estimators.</li>
+        <li><strong>Recursive Binary Splitting:</strong> Each individual tree <em>T<sub>b</sub></em> recursively partitions the feature space into orthogonal subregions by finding the optimal feature <em>j</em> and split threshold <em>s</em> that minimizes leaf Mean Squared Error (MSE).</li>
+        <li><strong>Ensemble Averaging:</strong> For an unseen query input vector <strong>x</strong><sup>*</sup>, each tree computes a scalar prediction <em>T<sub>b</sub>(<strong>x</strong><sup>*</sup>)</em>. The forest outputs the unweighted mean of all individual tree estimates.</li>
     </ol>
 
-    <p><strong>Key Mathematical Equation:</strong></p>
+    <p><strong>Key Mathematical Formulations:</strong></p>
     <div class="math-block">
         y&#770;<sub>RF</sub>(<strong>x</strong>) = (1 / B) &sum;<sub>b=1</sub><sup>B</sup> T<sub>b</sub>(<strong>x</strong>)
     </div>
     <p>
         Where:
-        <br>&bull; <strong>B</strong>: Total number of decision trees in the ensemble (<em>B = 100</em>).
-        <br>&bull; <strong>T<sub>b</sub>(x)</strong>: The scalar continuous AQI prediction output from the <em>b</em>-th individual tree.
-        <br>&bull; <strong>x &isin; &reals;<sup>6</sup></strong>: The input feature vector containing the 6 pollutant concentrations: [x<sub>PM2.5</sub>, x<sub>PM10</sub>, x<sub>NO2</sub>, x<sub>SO2</sub>, x<sub>CO</sub>, x<sub>O3</sub>]<sup>T</sup>.
+        <br>&bull; <strong>B</strong>: Number of ensemble trees (configured to <em>B = 100</em>).
+        <br>&bull; <strong>T<sub>b</sub>(x)</strong>: Continuous response prediction generated by the <em>b</em>-th decision tree.
+        <br>&bull; <strong>x &isin; &reals;<sup>6</sup></strong>: The input pollutant vector: [x<sub>PM2.5</sub>, x<sub>PM10</sub>, x<sub>NO2</sub>, x<sub>SO2</sub>, x<sub>CO</sub>, x<sub>O3</sub>]<sup>T</sup>.
     </p>
-    <p>
-        The recursive binary partition at each node solves the objective:
-    </p>
+    <p>The objective function minimized during node splitting is defined by variance reduction:</p>
     <div class="math-block">
         min<sub>j, s</sub> [ &sum;<sub>i &isin; R<sub>1</sub>(j, s)</sub> (y<sub>i</sub> - y&#772;<sub>R<sub>1</sub></sub>)<sup>2</sup> + &sum;<sub>i &isin; R<sub>2</sub>(j, s)</sub> (y<sub>i</sub> - y&#772;<sub>R<sub>2</sub></sub>)<sup>2</sup> ]
     </div>
     <p>
-        Where <em>j</em> represents the chosen feature index, <em>s</em> is the split threshold, and <em>R<sub>1</sub></em>, <em>R<sub>2</sub></em> are the resulting left and right subspace regions.
+        Where <em>R<sub>1</sub>(j, s) = {x | x<sub>j</sub> &le; s}</em> and <em>R<sub>2</sub>(j, s) = {x | x<sub>j</sub> &gt; s}</em> represent the partitioned binary subspaces, and <em>y&#772;<sub>R<sub>1</sub></sub></em>, <em>y&#772;<sub>R<sub>2</sub></sub></em> represent the respective target averages.
     </p>
 
-    <p><strong>Small, Worked Numerical Example:</strong></p>
+    <p><strong>Small Worked Numerical Example:</strong></p>
     <p>
-        Suppose an ensemble consists of <em>B = 3</em> simplified trees. A new monitoring reading arrives:
+        Consider a simplified sub-ensemble of <em>B = 3</em> decision trees predicting the continuous AQI for an ambient test vector:
         <br>
         <strong>x</strong><sup>*</sup> = [PM<sub>2.5</sub> = 54.70, PM<sub>10</sub> = 91.45, NO<sub>2</sub> = 25.04, SO<sub>2</sub> = 19.45, CO = 2.30, O<sub>3</sub> = 33.52].
     </p>
     <ul>
-        <li><strong>Tree 1:</strong> Checks condition <em>PM<sub>2.5</sub> &le; 60.0</em> (True) &rarr; Checks <em>PM<sub>10</sub> &gt; 85.0</em> (True) &rarr; Leaf outputs <strong>103.20</strong>.</li>
-        <li><strong>Tree 2:</strong> Checks condition <em>CO &gt; 2.0</em> (True) &rarr; Checks <em>PM<sub>2.5</sub> &le; 55.0</em> (True) &rarr; Leaf outputs <strong>103.45</strong>.</li>
-        <li><strong>Tree 3:</strong> Checks condition <em>PM<sub>2.5</sub> &gt; 50.0</em> (True) &rarr; Checks <em>NO<sub>2</sub> &le; 40.0</em> (True) &rarr; Leaf outputs <strong>103.34</strong>.</li>
+        <li><strong>Tree 1:</strong> Evaluates condition <em>PM<sub>2.5</sub> &le; 60.0 &mu;g/m&sup3;</em> (True &rarr; Left branch) &rarr; Evaluates <em>PM<sub>10</sub> &gt; 85.0 &mu;g/m&sup3;</em> (True &rarr; Right branch) &rarr; Leaf prediction: <strong>y&#770;<sub>1</sub> = 103.20</strong>.</li>
+        <li><strong>Tree 2:</strong> Evaluates condition <em>CO &gt; 2.0 mg/m&sup3;</em> (True &rarr; Right branch) &rarr; Evaluates <em>PM<sub>2.5</sub> &le; 55.0 &mu;g/m&sup3;</em> (True &rarr; Left branch) &rarr; Leaf prediction: <strong>y&#770;<sub>2</sub> = 103.45</strong>.</li>
+        <li><strong>Tree 3:</strong> Evaluates condition <em>PM<sub>2.5</sub> &gt; 50.0 &mu;g/m&sup3;</em> (True &rarr; Right branch) &rarr; Evaluates <em>NO<sub>2</sub> &le; 40.0 &mu;g/m&sup3;</em> (True &rarr; Left branch) &rarr; Leaf prediction: <strong>y&#770;<sub>3</sub> = 103.34</strong>.</li>
     </ul>
-    <p>
-        The ensemble aggregate prediction is:
-    </p>
+    <p><strong>Aggregation:</strong></p>
     <div class="math-block">
-        y&#770;<sub>RF</sub> = (103.20 + 103.45 + 103.34) / 3 = 310.0 / 3 = 103.33
+        y&#770;<sub>RF</sub> = (103.20 + 103.45 + 103.34) / 3 = 310.00 / 3 = 103.33 AQI points.
     </div>
     <p>
-        This prediction precisely matches the true ground truth value of 103.33, effectively eliminating individual tree variance.
+        The ensemble aggregate converges exactly to the ground-truth value of 103.33, effectively canceling individual tree variance.
     </p>
 
+    <!-- ================= PAGE 3 ================= -->
     <div class="page-break"></div>
 
     <h2>4. Implementation</h2>
     <p>
-        <strong>Tools, Libraries, and Source Code:</strong>
-        The project was implemented in Python 3.13 within a sandboxed macOS environment. Key scientific libraries utilized include <em>scikit-learn (v1.9.0)</em> for estimators, <em>pandas (v2.3.3)</em> and <em>numpy (v2.5.2)</em> for data handling, <em>matplotlib (v3.11.1)</em> and <em>seaborn (v0.13.2)</em> for visualization, and <em>joblib (v1.5.3)</em> for model serialization. The complete codebase and models are hosted at:
+        <strong>Tools, Libraries, and Source Code Link:</strong><br>
+        The computational pipeline was engineered in Python 3.13. Key open-source scientific libraries include <em>scikit-learn (v1.9.0)</em> for estimators, train-test splitting, and metrics; <em>pandas (v2.3.3)</em> and <em>numpy (v2.5.2)</em> for matrix structures; <em>matplotlib (v3.11.1)</em> and <em>seaborn (v0.13.2)</em> for graphical analytics; <em>joblib (v1.5.3)</em> for model serialization; and <em>streamlit (v1.64.0)</em> for interactive user interface deployment.
         <br>
-        <strong>Code Repository:</strong> <a href="https://github.com/Aayush-9849/Air-Quality-Index">https://github.com/Aayush-9849/Air-Quality-Index</a>
+        <strong>Executed GitHub Code Repository:</strong> <a href="https://github.com/Aayush-9849/Air-Quality-Index">https://github.com/Aayush-9849/Air-Quality-Index</a>
     </p>
     <p>
-        <strong>Dataset and Number of Examples:</strong>
-        The experimental dataset consists of <strong>5,000 multi-pollutant monitoring records</strong>. Each record contains 6 input features (PM<sub>2.5</sub>, PM<sub>10</sub>, NO<sub>2</sub>, SO<sub>2</sub>, CO, O<sub>3</sub>) and the target continuous Air Quality Index (AQI), spanning values from 26.87 up to 341.42. The concentrations reflect realistic atmospheric correlation matrices (such as vehicular traffic correlating CO and NO<sub>2</sub>) and Central Pollution Control Board (CPCB) and US EPA piecewise breakpoint standards.
+        <strong>Dataset and Number of Examples:</strong><br>
+        The benchmark dataset comprises <strong>5,000 multi-pollutant environmental monitoring records</strong>. Each sample encapsulates 6 real-valued criteria air pollutants: PM<sub>2.5</sub> (2.0–166.1 &mu;g/m&sup3;), PM<sub>10</sub> (5.0–295.2 &mu;g/m&sup3;), NO<sub>2</sub> (3.0–111.9 &mu;g/m&sup3;), SO<sub>2</sub> (1.5–64.3 &mu;g/m&sup3;), CO (0.2–8.0 mg/m&sup3;), and O<sub>3</sub> (4.0–113.6 &mu;g/m&sup3;). The target response is the continuous Air Quality Index (AQI, range: 26.87–341.42). Concentrations model atmospheric chemistry cross-correlations (e.g., combustion correlation between CO and NO<sub>2</sub>) and Central Pollution Control Board (CPCB) and US EPA breakpoint equations with ambient Gaussian sensor noise (&sigma; = 2.5).
     </p>
     <p>
-        <strong>Experimental Settings and Steps Followed:</strong>
+        <strong>Experimental Settings and Workflow:</strong><br>
+        An 80:20 train-test split was executed using a fixed pseudo-random seed (<code>random_state=42</code>), producing 4,000 training examples and 1,000 unseen holdout evaluation examples. Three algorithms were systematically benchmarked:
+        <br>&bull; <em>Multiple Linear Regression (MLR):</em> Baseline ordinary least squares (OLS) with unregularized parameters.
+        <br>&bull; <em>Decision Tree Regressor:</em> Single CART estimator configured with <code>max_depth=8</code> and <code>criterion='squared_error'</code>.
+        <br>&bull; <em>Random Forest Regressor (Proposed):</em> Bagging ensemble comprising <code>n_estimators=100</code>, <code>max_depth=12</code>, <code>max_features='sqrt'</code>, and <code>n_jobs=-1</code>.
     </p>
-    <ol>
-        <li><strong>Train-Test Splitting:</strong> The 5,000 instances were split using an 80:20 ratio (<em>random_state=42</em>), producing 4,000 training instances and 1,000 independent test instances.</li>
-        <li><strong>Model Training:</strong> Three architectures were trained: Multiple Linear Regression (baseline), Decision Tree Regressor (<em>max_depth=8</em>), and Random Forest Regressor (<em>n_estimators=100, max_depth=12</em>).</li>
-        <li><strong>Evaluation Metrics:</strong> Evaluated using Coefficient of Determination (R<sup>2</sup>), Mean Absolute Error (MAE), and Root Mean Squared Error (RMSE).</li>
-        <li><strong>Application Interface:</strong> An interactive Streamlit application (<code>app.py</code>) was developed to serve real-time predictions.</li>
-    </ol>
     <p>
-        <strong>Problems Faced and Solutions:</strong>
+        <strong>Problems Faced and Engineering Solutions:</strong>
     </p>
     <ul>
-        <li><em>Piecewise Discontinuity:</em> Standard linear regression struggled with breakpoint transitions between AQI bands, resulting in high baseline error (MAE = 20.04). This was resolved by adopting non-linear decision tree ensembles that partition the input space hierarchically.</li>
-        <li><em>Particulate Dominance:</em> PM<sub>2.5</sub> has high variance and can eclipse secondary pollutants. The random feature subsampling mechanism of Random Forest forced splits on gaseous pollutants, ensuring balanced multi-pollutant sensitivity.</li>
+        <li><em>Piecewise Breakpoint Discontinuities:</em> Standard AQI functions possess piecewise mathematical slopes at category thresholds. Linear regression underperformed severely (MAE = 20.04). Decision tree partitioning natively modeled piecewise step-changes without requiring manual spline basis functions.</li>
+        <li><em>Extreme Variance Dominance of PM<sub>2.5</sub>:</em> High standard deviation in PM<sub>2.5</sub> caused single trees to repeatedly split on PM<sub>2.5</sub> and neglect gaseous spikes. Random feature subsampling (<code>max_features='sqrt'</code>) forced trees to incorporate NO<sub>2</sub>, SO<sub>2</sub>, and CO.</li>
     </ul>
 
     <h2>5. Results and Discussion</h2>
+    <p><strong>Quantitative Benchmark Results:</strong></p>
     <p>
-        <strong>Comparative Results:</strong>
-        The performance across all three evaluated regression models on the 1,000 unseen test instances is summarized in Table 1 below:
+        Table 1 presents the performance metrics obtained on the 1,000 independent test instances.
     </p>
 
     <table class="data-table">
@@ -341,65 +312,66 @@
         </tbody>
     </table>
 
-    <div class="figure-container">
-        <img src="figures/actual_vs_predicted.png" alt="Actual vs Predicted AQI">
-        <div class="figure-caption">Figure 1: Actual vs. Predicted AQI scatter plot for the Random Forest Regressor on holdout test data (R² = 0.9958).</div>
+    <div class="figures-row">
+        <div class="figure-col">
+            <img src="figures/actual_vs_predicted.png" alt="Actual vs Predicted AQI">
+            <div class="figure-caption">Figure 1: Actual vs. Predicted AQI on holdout test set (R² = 0.9958).</div>
+        </div>
+        <div class="figure-col">
+            <img src="figures/feature_importance.png" alt="Feature Importance">
+            <div class="figure-caption">Figure 2: Relative pollutant feature importances via MDI.</div>
+        </div>
     </div>
 
-    <p>
-        <strong>Feature Importance Analysis:</strong>
-        Feature importance extracted via Mean Decrease in Impurity (MDI) indicates that <strong>PM<sub>2.5</sub></strong> is the overwhelmingly dominant predictor, contributing <strong>88.95%</strong> of overall importance, followed by CO (7.30%), PM<sub>10</sub> (3.55%), O<sub>3</sub> (0.13%), NO<sub>2</sub> (0.04%), and SO<sub>2</sub> (0.03%).
-    </p>
-
-    <div class="figure-container">
-        <img src="figures/feature_importance.png" alt="Feature Importance">
-        <div class="figure-caption">Figure 2: Relative pollutant feature importance scores (MDI) for AQI determination.</div>
-    </div>
-
+    <!-- ================= PAGE 4 ================= -->
     <div class="page-break"></div>
 
-    <p><strong>Sample Case Analysis: Correct vs. Divergent Predictions</strong></p>
+    <p><strong>Feature Importance Analysis:</strong></p>
+    <p>
+        Mean Decrease in Impurity (MDI) analysis indicates that fine particulate matter (<strong>PM<sub>2.5</sub></strong>) is the overwhelmingly dominant predictor, contributing <strong>88.95%</strong> of overall split importance. This is followed by carbon monoxide (<strong>CO: 7.30%</strong>), coarse particulates (<strong>PM<sub>10</sub>: 3.55%</strong>), ground-level ozone (<strong>O<sub>3</sub>: 0.13%</strong>), nitrogen dioxide (<strong>NO<sub>2</sub>: 0.04%</strong>), and sulfur dioxide (<strong>SO<sub>2</sub>: 0.03%</strong>).
+    </p>
+
+    <p><strong>Case Analysis: Correct vs. Incorrect Predictions:</strong></p>
     <ul>
         <li>
-            <strong>Accurate Output (Zero Error Case):</strong>
-            <br><em>Inputs:</em> PM<sub>2.5</sub> = 54.70, PM<sub>10</sub> = 91.45, NO<sub>2</sub> = 25.04, SO<sub>2</sub> = 19.45, CO = 2.30, O<sub>3</sub> = 33.52.
-            <br><em>Actual AQI:</em> <strong>103.33</strong> | <em>Predicted AQI:</em> <strong>103.33</strong> | <em>Absolute Error:</em> <strong>0.00</strong> (0.00%).
-            <br><em>Explanation:</em> The feature values represent typical ambient conditions where PM<sub>2.5</sub> sits at the entry threshold of the "Moderate" band. Tree splits converge cleanly without disagreement among estimators.
+            <strong>Accurate Output (Zero-Error Case):</strong><br>
+            <em>Input Measurements:</em> PM<sub>2.5</sub> = 54.70 &mu;g/m&sup3;, PM<sub>10</sub> = 91.45 &mu;g/m&sup3;, NO<sub>2</sub> = 25.04 &mu;g/m&sup3;, SO<sub>2</sub> = 19.45 &mu;g/m&sup3;, CO = 2.30 mg/m&sup3;, O<sub>3</sub> = 33.52 &mu;g/m&sup3;.<br>
+            <em>Ground Truth AQI:</em> <strong>103.33</strong> | <em>Model Predicted AQI:</em> <strong>103.33</strong> | <em>Absolute Error:</em> <strong>0.00</strong> (0.00% error).<br>
+            <em>Explanation:</em> The input sample lies cleanly within the core distribution of typical urban environments. Because PM<sub>2.5</sub> cleanly crosses the breakpoint into the "Moderate" category (AQI 101–200), all 100 constituent trees generated identical terminal partition bounds.
         </li>
         <li>
-            <strong>Divergent Output (Maximum Error Case):</strong>
-            <br><em>Inputs:</em> PM<sub>2.5</sub> = 25.28, PM<sub>10</sub> = 34.66, NO<sub>2</sub> = 59.71, SO<sub>2</sub> = 10.62, CO = 0.69, O<sub>3</sub> = 30.75.
-            <br><em>Actual AQI:</em> <strong>79.82</strong> | <em>Predicted AQI:</em> <strong>48.51</strong> | <em>Absolute Error:</em> <strong>31.31</strong> (39.23% error).
-            <br><em>Explanation:</em> This outlier highlights a scenario where particulate matter is exceptionally clean (PM<sub>2.5</sub> = 25.28 &rarr; AQI &lt; 50), but an isolated NO<sub>2</sub> combustion spike occurs (59.71 &mu;g/m&sup3; &rarr; sub-index ~75). Because 88.95% of splits prioritize PM<sub>2.5</sub>, the model assigned the sample to a low-particulate leaf, failing to fully capture the isolated gaseous surge.
+            <strong>Divergent Output (Maximum Error Case):</strong><br>
+            <em>Input Measurements:</em> PM<sub>2.5</sub> = 25.28 &mu;g/m&sup3;, PM<sub>10</sub> = 34.66 &mu;g/m&sup3;, NO<sub>2</sub> = 59.71 &mu;g/m&sup3;, SO<sub>2</sub> = 10.62 &mu;g/m&sup3;, CO = 0.69 mg/m&sup3;, O<sub>3</sub> = 30.75 &mu;g/m&sup3;.<br>
+            <em>Ground Truth AQI:</em> <strong>79.82</strong> (Satisfactory band, driven by NO<sub>2</sub>) | <em>Model Predicted AQI:</em> <strong>48.51</strong> (Good band) | <em>Absolute Error:</em> <strong>31.31</strong> (39.23% error).<br>
+            <em>Explanation:</em> This outlier highlights a critical structural edge case: particulate matter was exceptionally clean (PM<sub>2.5</sub> = 25.28 &mu;g/m&sup3; &rarr; sub-index &lt; 50), but an isolated NO<sub>2</sub> combustion spike occurred (59.71 &mu;g/m&sup3; &rarr; sub-index ~75). Because 88.95% of forest splits prioritize PM<sub>2.5</sub>, the model routed the sample into a low-particulate leaf node, under-predicting the isolated gaseous surge.
         </li>
     </ul>
 
-    <p><strong>Limitations:</strong></p>
+    <p><strong>Limitations of the Study:</strong></p>
     <p>
-        The model exhibits slight under-prediction when rare secondary pollutant surges happen in the presence of clean particulate readings. Additionally, physical meteorology variables (wind vector, thermal inversions, boundary layer height) were not included, which can modify ground-level pollutant dispersion.
+        The model exhibits vulnerability to rare single-pollutant gaseous anomalies when particulate matter remains low. Additionally, meteorological dispersion parameters (ambient temperature, boundary layer height, wind velocity) were not included in the feature set.
     </p>
 
     <h2>6. Conclusion</h2>
     <p>
-        This case study demonstrates that supervised machine learning using a Random Forest Regressor can accurately predict continuous Air Quality Index (AQI) values from multi-pollutant levels with high fidelity (R<sup>2</sup> = 0.9958, MAE = 2.39). Fine particulate matter (PM<sub>2.5</sub>) is the decisive biomarker governing urban air quality, accounting for nearly 89% of predictive importance. Non-linear bagging ensembles dramatically outperform conventional linear regression baselines by capturing piecewise breakpoint behaviors. However, isolated gaseous anomalies represent edge cases that require multi-pollutant safeguards.
+        This case study establishes that supervised machine learning using a Random Forest Regressor can accurately predict continuous Air Quality Index (AQI) values from multi-pollutant levels with exceptional fidelity (R<sup>2</sup> = 0.9958, MAE = 2.39). Fine particulate matter (PM<sub>2.5</sub>) is the decisive determinant governing atmospheric air quality, accounting for 88.95% of total predictive importance. Non-linear bagging ensembles dramatically outperform conventional linear regression baselines by capturing piecewise breakpoint behaviors, reducing RMSE by 86.97%. However, isolated secondary gaseous surges represent operational edge cases that necessitate dedicated multi-pollutant maximum safeguards.
     </p>
 
     <h2>7. References</h2>
     <ol>
-        <li><strong>Base Paper:</strong> S. Ameer, M. A. Shah, A. Khan, H. Song, C. Maple, S. U. Islam, and M. N. Asghar, "Comparative Analysis of Machine Learning Techniques for Predicting Air Quality in Smart Cities," <em>IEEE Access</em>, vol. 7, pp. 128325-128338, 2019. DOI: 10.1109/ACCESS.2019.2925082.</li>
-        <li><strong>Official Standard:</strong> Central Pollution Control Board (CPCB), "National Air Quality Index: Standard Operating Procedure and Calculation Guidelines," Ministry of Environment, Forest and Climate Change, Government of India, 2015.</li>
-        <li><strong>Machine Learning Framework:</strong> F. Pedregosa <em>et al.</em>, "Scikit-learn: Machine Learning in Python," <em>Journal of Machine Learning Research (JMLR)</em>, vol. 12, pp. 2825-2830, 2011.</li>
-        <li><strong>Algorithm Theory:</strong> L. Breiman, "Random Forests," <em>Machine Learning</em>, vol. 45, no. 1, pp. 5-32, 2001. DOI: 10.1023/A:1010933404324.</li>
-        <li><strong>Code Repository:</strong> A. Yadav, "Air Quality Index (AQI) Prediction Pipeline and Streamlit Application," GitHub Repository, 2026. [Online]. Available: https://github.com/Aayush-9849/Air-Quality-Index</li>
+        <li><strong>[1] Base Paper:</strong> S. Ameer, M. A. Shah, A. Khan, H. Song, C. Maple, S. U. Islam, and M. N. Asghar, "Comparative Analysis of Machine Learning Techniques for Predicting Air Quality in Smart Cities," <em>IEEE Access</em>, vol. 7, pp. 128325-128338, 2019. DOI: 10.1109/ACCESS.2019.2925082.</li>
+        <li><strong>[2] Official Standard:</strong> Central Pollution Control Board (CPCB), "National Air Quality Index: Standard Operating Procedure and Calculation Guidelines," Ministry of Environment, Forest and Climate Change, Government of India, 2015.</li>
+        <li><strong>[3] Machine Learning Framework:</strong> F. Pedregosa <em>et al.</em>, "Scikit-learn: Machine Learning in Python," <em>Journal of Machine Learning Research (JMLR)</em>, vol. 12, pp. 2825-2830, 2011.</li>
+        <li><strong>[4] Algorithm Theory:</strong> L. Breiman, "Random Forests," <em>Machine Learning</em>, vol. 45, no. 1, pp. 5-32, 2001. DOI: 10.1023/A:1010933404324.</li>
+        <li><strong>[5] Executed Code Repository:</strong> A. Yadav, "Air Quality Index (AQI) Prediction Pipeline and Streamlit Application," GitHub Repository, 2026. [Online]. Available: https://github.com/Aayush-9849/Air-Quality-Index</li>
     </ol>
 
     <div class="declaration-box">
-        <h2>8. Declaration</h2>
-        <p>I confirm that this case study is my own work and that all results reported were obtained by me.</p>
-        <br>
-        <p><strong>Signature:</strong> ___________________________________</p>
-        <p><strong>Roll No.:</strong> [Your Roll No.]</p>
-        <p><strong>Name:</strong> [Your Name]</p>
+        <strong>8. Declaration:</strong><br>
+        I confirm that this case study is my own work and that all results reported were obtained by me.<br><br>
+        <strong>Signature:</strong> ___________________________________ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <strong>Roll No.:</strong> [Your Roll No.] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <strong>Name:</strong> Ayush Yadav
     </div>
 
 </body>

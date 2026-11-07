@@ -4,6 +4,7 @@
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-v1.9.0-orange.svg)](https://scikit-learn.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-v1.64.0-FF4B4B.svg)](https://streamlit.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Download Report](https://img.shields.io/badge/Case%20Study%20Report-Download%20PDF-red?logo=adobeacrobatreader)](reports/CLA3_Air_Quality_Index_Report.pdf)
 
 An end-to-end Machine Learning Case Study predicting continuous **Air Quality Index (AQI)** values and categorizing health risks directly from ambient multi-pollutant concentrations ($PM_{2.5}, PM_{10}, NO_2, SO_2, CO, O_3$).
 
